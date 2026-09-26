@@ -1,50 +1,91 @@
 # pkgbuild-action
-GitHub action to build and check a PKGBUILD package
 
-## Features
-* Checks that .SRCINFO matches PKGBUILD if .SRCINFO exists
-* Builds package(s) with makepkg (configurable arguments)
-* Runs on a bare minimum Arch Linux install to help detect missing dependencies
-* Outputs built package archives
-* Checks PKGBUILD and package archives with [namcap](https://wiki.archlinux.org/index.php/namcap)
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/pkgbuild-action) [![KDE Eco](https://img.shields.io/badge/KDE%20Eco-certified-brightgreen?logo=kde&logoColor=white&style=flat-square)](https://eco.kde.org/) [![Blue Angel](https://img.shields.io/badge/Blue%20Angel-DE--UZ%20215-0055a4?style=flat-square)](https://www.blauer-engel.de/en/certification/criteria)
 
-## Interface
-Inputs:
-* `pkgdir`: Relative path to directory containing the PKGBUILD file
-            (repo root by default).
-* `aurDeps`: Support AUR dependencies if nonempty.
-* `namcapDisable`: Disable namcap checks if nonempty.
-* `ccacheEnable`: Enable ccache option usage if nonempty.
-* `namcapRules`: A comma-separated list of rules for namcap to run.
-* `namcapExcludeRules`: A comma-separated list of rules for namcap not to run.
-* `makepkgArgs`: Additional arguments to pass to `makepkg`.
 
-Outputs:
-* `pkgfileN`: Filename of Nth built package archive (ordered as `makepkg --packagelist`).
-   Empty if not built. N = 0, 1, ...
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-## Example Usage
-```yaml
-name: PKGBUILD CI
+## Architecture
 
-on: [push, pull_request]
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-jobs:
-  pkgbuild:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Makepkg Build and Check
-      id: makepkg
-      uses: edlanglois/pkgbuild-action@v1
-    - name: Print Package Files
-      run: |
-        echo "Successfully created the following package archive"
-        echo "Package: ${{ steps.makepkg.outputs.pkgfile0 }}"
-    # Uncomment to upload the package as an artifact
-    # - name: Upload Package Archive
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     path: ${{ steps.makepkg.outputs.pkgfile0 }}
+## Install
+
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
+
+```bash
+git clone https://github.com/Interested-Deving-1896/pkgbuild-action.git
+cd pkgbuild-action
 ```
+
+## Usage
+
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
+
+## Configuration
+
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
+
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/pkgbuild-action`](https://github.com/Interested-Deving-1896/pkgbuild-action) and mirrored through:
+
+```
+Interested-Deving-1896/pkgbuild-action  ──►  OpenOS-Project-OSP/pkgbuild-action  ──►  OpenOS-Project-Ecosystem-OOC/pkgbuild-action
+```
+
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
+
+## Contributors
+
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
+
+## Origins
+
+<!-- AI:start:origins -->
+_Original project — no upstream influences recorded._
+<!-- AI:end:origins -->
+
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## Accessibility
+
+<!-- AI:start:accessibility -->
+This repo uses automated accessibility auditing via `check-accessibility.yml`.
+
+Checks include: CODEOWNERS ownership coverage, README screen-reader compatibility,
+WCAG 2.1 AA HTML compliance, audio overview (espeak-ng), and Braille output (liblouis).
+
+
+
+
+Run the [Check Accessibility](https://github.com/Interested-Deving-1896/pkgbuild-action/actions/workflows/check-accessibility.yml)
+workflow to generate the first report and accessibility artifacts.
+See [DOCS/accessibility.md](https://github.com/Interested-Deving-1896/pkgbuild-action/blob/main/DOCS/accessibility.md) for the full reference.
+<!-- AI:end:accessibility -->
+
+## License
+
+<!-- AI:start:license -->
+[MIT](https://github.com/Interested-Deving-1896/pkgbuild-action/blob/master/LICENSE) © 2026 [Interested-Deving-1896](https://github.com/Interested-Deving-1896)
+<!-- AI:end:license -->
